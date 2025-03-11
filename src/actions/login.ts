@@ -11,28 +11,6 @@ import { sendTwoFactorTokenEmail, sendVerificationEmail } from "@/lib/mail";
 import { getTwoFactorTokenByEmail } from "@/data/two-factor-token"
 import { db } from "@/lib/db"
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation"
-/**
- * Logs in a user with the provided values.
- * 
- * @param values - The values to validate and use for login.
- * @returns An object containing an error message if the login fails, or a two-factor authentication prompt if required.
- * 
- * The function performs the following steps:
- * 1. Validates the input values against the `LoginSchema`.
- * 2. Checks if the user exists and if the password is set.
- * 3. Handles two-factor authentication if enabled for the user.
- * 4. Attempts to sign in the user with the provided credentials.
- * 
- * Possible return values:
- * - `{ error: "invalid fields !" }` if the input values are invalid.
- * - `{ error: "no password is set for your account click on forgot password ? to set one." }` if the user exists but no password is set.
- * - `{ error: "this email addresse does not exist" }` if the user does not exist.
- * - `{ error: "code invalide" }` if the two-factor authentication token is invalid.
- * - `{ error: "code expiré" }` if the two-factor authentication token has expired.
- * - `{ twoFactor: true }` if two-factor authentication is required and a token has been sent.
- * - `{ error: "Invalid credentials!" }` if the credentials are invalid.
- * - `{ error: "Something when wrong!" }` if an unknown error occurs.
- */
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validatedFields = LoginSchema.safeParse(values)
   if (!validatedFields.success) return { error: "invalid fields !" }

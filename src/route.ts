@@ -8,14 +8,13 @@ export const PublicRoutes = ["/", "/courses", "/auth/new-verification"];
  * @type {string[]}
  */
 export const authRoutes = [
-  "/auth/login",
-  "/auth/register",
-  "/auth/join",
-  "/auth/error",
-  "/auth/reset-password",
-  "/auth/new-password",
+  "/login",
+  "/register",
+  "/join",
+  "/error",
+  "/reset-password",
+  "/new-password",
 ];
-export const adminRoutes = "/admin";
 
 /**  The prefix for API authentication routes
  * routes that start with this prefix are used for API authentication purpose
@@ -26,4 +25,4 @@ export const apiAuthPrefix = "/api/auth";
 /**  The default redirect path after logging in
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT = "/user";
+export const DEFAULT_LOGIN_REDIRECT = "/app";

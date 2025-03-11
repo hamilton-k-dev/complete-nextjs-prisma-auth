@@ -53,7 +53,7 @@ export const RegisterForm = () => {
     ? "Account created"
     : "Create an account";
   const backButtonLabel = validToken ? "" : "Already have an account ?";
-  const backButtonHref = validToken ? "" : "/auth/login";
+  const backButtonHref = validToken ? "" : "login";
   const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
     setError("");
     setSuccess("");
@@ -191,7 +191,7 @@ export const RegisterForm = () => {
                         <div className="flex justify-between items-center">
                           <div>Password</div>
                           <Link
-                            href={"/auth/reset-password"}
+                            href={"/reset-password"}
                             className=" text-primary text-sm"
                           >
                             forgot password ?
@@ -235,7 +235,7 @@ export const RegisterForm = () => {
           {registrationCompleted ? (
             <div className="w-full">
               <Button type="button" className="w-full" asChild>
-                <Link href={"/auth/login"} className="">
+                <Link href={"/login"} className="">
                   Login
                 </Link>
               </Button>

@@ -66,7 +66,7 @@ export const LoginForm = () => {
     <CardWrapper
       headerLabel={headerLabel}
       backButtonLabel="Don't have an account ?"
-      backButtonHref="/auth/register"
+      backButtonHref="/register"
       showSocial={!twoFactor}
     >
       <Form {...form}>
@@ -105,7 +105,7 @@ export const LoginForm = () => {
                         <div className="flex justify-between items-center">
                           <div>Password</div>
                           <Link
-                            href={"/auth/reset-password"}
+                            href={"/reset-password"}
                             className=" text-primary text-sm"
                           >
                             forgot password ?
