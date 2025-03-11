@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Complete Next.js Prisma Auth
 
-## Getting Started
+A full-stack authentication system built with Next.js, Prisma, and PostgreSQL. This project supports both credential-based and social logins (Google & GitHub) and includes advanced authentication features such as role-based access control (RBAC), email verification, and two-factor authentication (2FA) via email OTPs.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🔐 **Authentication** with NextAuth.js
+- 🔑 **Credential & Social Logins** (Google & GitHub)
+- 🎭 **Role-Based Access Control (RBAC)**
+- 📧 **Email Verification**
+- 🔢 **Two-Factor Authentication (2FA)** via email OTPs
+- 📬 **Email Handling** with Resend
+- 🚀 **Deployed on Vercel** with Neon as the database
+
+## Tech Stack
+
+- **Frontend:** Next.js (App Router) & TypeScript
+- **Backend:** Next.js API routes with Prisma
+- **Database:** PostgreSQL (Neon)
+- **Authentication:** NextAuth.js
+- **Emails:** Resend
+- **Deployment:** Vercel
+
+## Installation
+
+Clone the repository and install dependencies:
+
+```sh
+git clone https://github.com/your-username/complete-nextjs-prisma-auth.git
+cd complete-nextjs-prisma-auth
+pnpm install  # or npm install / yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env` file in the root directory and add the following:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```env
+DATABASE_URL=your_neon_postgresql_url
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+RESEND_API_KEY=your_resend_api_key
+```
 
-## Learn More
+## Running the Project
 
-To learn more about Next.js, take a look at the following resources:
+Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm dev  # or npm run dev / yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Database Setup
 
-## Deploy on Vercel
+Run Prisma migrations to set up the database:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+npm prisma migrate dev  # or npx prisma migrate dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployment
+
+This project is deployed on Vercel. To deploy manually, run:
+
+```sh
+vercel
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+## License
+
+This project is open-source under the MIT License.
